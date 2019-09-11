@@ -48,10 +48,22 @@ namespace WestWindConsole
                     case 8:
                         DisplayShippers();
                         break;
+                    case 9:
+                        DisplayAddresses();
+                        break;
                     // TODO: Practice - Display methods for remaining tables
                 }
                 Pause();
             } while (menuChoice > 0 && menuChoice <= 15);
+        }
+
+        private void DisplayAddresses()
+        {
+            using (var context = new WestWindContext())
+            {
+                int count = context.Addresses.Count();
+                Console.WriteLine($"There are {count} Addresses");
+            }
         }
 
         private void Pause()
@@ -159,6 +171,7 @@ namespace WestWindConsole
             Console.WriteLine("7) Shipments");
             Console.WriteLine("8) Shippers");
             // TODO: Practice - Menu options for remaining tables
+            Console.WriteLine("(9) Addresses");
 
             Console.Write("Select a table (or 0 to exit): ");
             int choice = int.Parse(Console.ReadLine());
