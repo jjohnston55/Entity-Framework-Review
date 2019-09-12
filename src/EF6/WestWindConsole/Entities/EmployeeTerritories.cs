@@ -15,5 +15,10 @@ namespace WestWindConsole.Entities
         public int EmployeeID { get; set; }
         [Key, Column(Order = 2)]
         public string TerritoryID { get; set; }
+
+        [ForeignKey(nameof(EmployeeID))]
+        public virtual Employee Employee { get; set; }
+        [ForeignKey(nameof(TerritoryID)]
+        public virtual Territory Territory { get; set; }
     }
 }

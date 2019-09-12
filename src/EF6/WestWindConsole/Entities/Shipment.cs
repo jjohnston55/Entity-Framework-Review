@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -7,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace WestWindConsole.Entities
 {
+    [Table("Shipments")]
     public class Shipment
     {
+        [Key]
         public int ShipmentID { get; set; }
         public int OrderID { get; set; }
         public DateTime ShippedDate { get; set; }
@@ -18,5 +21,9 @@ namespace WestWindConsole.Entities
 
         [ForeignKey(nameof(ShipVia))]
         public virtual Shipper Shipper { get; set; }
+        [ForeignKey(nameof(OrderID))]
+        public virtual Order Order { get; set; }
+
+
     }
 }

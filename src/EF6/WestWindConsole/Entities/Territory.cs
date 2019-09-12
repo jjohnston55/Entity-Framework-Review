@@ -18,5 +18,7 @@ namespace WestWindConsole.Entities
 
         [ForeignKey(nameof(RegionID))]
         public virtual Region Regions { get; set; }
+
+        public virtual ICollection<EmployeeTerritory> EmployeeTerritories { get; set; } = new HashSet<EmployeeTerritory>();
     }
 }

@@ -20,6 +20,9 @@ namespace WestWindConsole.Entities
         public Guid TransactionID { get; set; }
         public DateTime? ClearedDate { get; set; }
 
-
+        [ForeignKey(nameof(PaymentTypeID))]
+        public virtual PaymentType PaymentType { get; set; }
+        [ForeignKey(nameof(OrderID))]
+        public virtual Order Order { get; set; }
     }
 }
