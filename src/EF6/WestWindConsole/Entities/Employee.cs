@@ -46,6 +46,9 @@ namespace WestWindConsole.Entities
         // Always initialize collection navigational properties to a HashSet<Entity>()
         public virtual ICollection<Employee> Subordinates { get; set; } =
             new HashSet<Employee>();
+
+        public virtual ICollection<EmployeeTerritory> EmployeeTerritories { get; set; } = new HashSet<EmployeeTerritory>();
+        public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
         #endregion
     }
 }

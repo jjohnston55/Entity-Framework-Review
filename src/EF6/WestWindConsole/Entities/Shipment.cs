@@ -24,6 +24,6 @@ namespace WestWindConsole.Entities
         [ForeignKey(nameof(OrderID))]
         public virtual Order Order { get; set; }
 
-
+        public virtual ICollection<ManifestItem> ManifestItems { get; set; } = new HashSet<ManifestItem>();
     }
 }

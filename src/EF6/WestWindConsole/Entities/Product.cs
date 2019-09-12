@@ -34,6 +34,12 @@ namespace WestWindConsole.Entities
         public bool Discontinued { get; set; }
 
         // TODO: Introducing Navigation Properties
+        [ForeignKey(nameof(SupplierID))]
+        public virtual Supplier Supplier { get; set; }
+        [ForeignKey(nameof(CategoryID))]
         public virtual Category Category { get; set; }
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new HashSet<OrderDetail>();
+        public virtual ICollection<ManifestItem> ManifestItems { get; set; } = new HashSet<ManifestItem>();
     }
 }
